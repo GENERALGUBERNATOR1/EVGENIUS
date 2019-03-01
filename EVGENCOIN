@@ -1,7 +1,7 @@
 Token Info
 Get ERC20-Token TotalSupply by ContractAddress
 
-https://api.etherscan.io/api?module=stats&action=tokensupply&contractaddress=0x57d90b64a1a57749b0f932f1a3395792e12e7055&apikey=YourApiKeyToken
+https://api.etherscan.io/api?module=stats&action=tokensupply&contractaddress=0xfa28Fd2c746Ce19150029D2A947Cd7A5dB6afbcD &apikey=YourApiKeyToken
 [Deprecated]Get Token TotalSupply by TokenName (Supported TokenNames: DGD, MKR, FirstBlood, HackerGold, ICONOMI, Pluton, REP, SNGLS). This has feature been deprecated, instead use the Api above to look up any ERC20 token supply by its contract address
 
 https://api.etherscan.io/api?module=stats&action=tokensupply&tokenname=DGD&apikey=YourApiKeyToken
