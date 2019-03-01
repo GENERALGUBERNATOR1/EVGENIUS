@@ -1,0 +1,124 @@
+Контракт API
+Недавно проверенные контракты синхронизируются с серверами API в течение 5 минут или менее
+
+Получить контракт ABI для проверенных исходных кодов контракта
+
+https://api.etherscan.io/api?module=contract&action=getabi&address=0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413&apikey=YourApiKeyToken
+Простой пример получения контракта ABI с использованием Web3.js и Jquery для взаимодействия с контрактом
+
+                                
+    var Web3 = require ('web3');
+    var web3 = новый Web3 (новый Web3.providers.HttpProvider ());
+    var version = web3.version.api;
+            
+    $ .getJSON ('http://api.etherscan.io/api?module=contract&action=getabi&address=0xfb6916095ca1df60bb79ce92ce3ea74c37c5d359', функция (данные) {
+        var contractABI = "";
+        contractABI = JSON.parse (data.result);
+        if (contractABI! = '') {
+            var MyContract = web3.eth.contract (contractABI);
+            var myContractInstance = MyContract.at ("0xfb6916095ca1df60bb79ce92ce3ea74c37c5d359");
+            var result = myContractInstance.memberId ("0xfe8ad7dd2f564a877cc23feea6c0a9cc2e783715");
+            console.log ("result1:" + result);            
+            var result = myContractInstance.members (1);
+            console.log ("result2:" + result);
+        } еще {
+            console.log («Ошибка»);
+        }            
+    });
+                                
+Получить исходный код контракта для проверенных исходных кодов контракта
+
+https://api.etherscan.io/api?module=contract&action=getsourcecode&address=0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413&apikey=YourApiKeyToken
+[BETA] Проверить исходный код
+
+1. Требуется действительный ключ Etherscan API , будет отклонен, если в противном случае 
+2. Текущий дневной лимит в 100 отправлений в день на пользователя (может быть изменен) 
+3. Поддерживается только публикация HTTP из-за ограничений максимального размера передачи для http get 
+4. Поддерживается до 10 разные пары библиотек 
+5. Контракты, использующие «импорт», должны будут объединять код в один файл, поскольку мы не поддерживаем «импорт» в отдельных файлах. Вы можете попробовать использовать Blockcat solidity-flattener или SolidityFlattery
+6. Списокподдерживаемые версии solc, поддерживается только версия solc v0.4.11 и выше. Ex. v0.4.25 + commit.59dbf8f1 
+7. После успешной отправки вы получите GUID (50 символов) в качестве квитанции. 
+8. Вы можете использовать этот GUID для отслеживания статуса вашей заявки. 
+9. Проверенные исходные коды будут отображаться в ContractVerified.
+См. Демонстрационный код подтверждения исходного кода в примере подтверждения исходного кода
+
+Суть представления исходного кода (возвращает результат как часть результата в случае успеха):
+
+    // Отправить исходный код для проверки
+    $ .Ajax ({
+        тип: "POST", // поддерживается только POST  
+        url: "//api.etherscan.io/api", // Установите правильный URL-адрес API для других сетей
+        данные: {
+            apikey: $ ('# apikey'). val (), // Требуется действительный ключ API        
+            модуль: «контракт», // не меняем
+            action: 'verifyysourcecode', // Не изменять
+            контрактный адрес: $ ('# контрактный адрес'). val (), // адрес контракта начинается с 0x ...     
+            sourceCode: $ ('# sourceCode'). val (), // Исходный код контракта (при необходимости выравнивается)
+            contractname: $ ('# contractname'). val (), // ContractName
+            compilerversion: $ ('# compilerversion'). val (), // список поддерживаемых версий см. в http://etherscan.io/solcversions.
+            OptimisUsed: $ ('# OptimizationUsed'). val (), // 0 = Используется оптимизация, 1 = Нет оптимизации
+            выполнения: 200, // по умолчанию установлено 200, если не указано иное         
+            constructorArguements: $ ('# constructorArguements'). val (), // если применимо
+            libraryname1: $ ('# libraryname1'). val (), // если применимо, требуется соответствующая пара с библиотечным адресом1
+            libraryaddress1: $ ('# libraryaddress1'). val (), // если применимо, требуется соответствующая пара с libraryname1
+            libraryname2: $ ('# libraryname2'). val (), // если применимо, требуется соответствующая пара
+            libraryaddress2: $ ('# libraryaddress2'). val (), // если применимо, требуется соответствующая пара
+            libraryname3: $ ('# libraryname3'). val (), // если применимо, требуется соответствующая пара
+            libraryaddress3: $ ('# libraryaddress3'). val (), // если применимо, требуется соответствующая пара
+            libraryname4: $ ('# libraryname4'). val (), // если применимо, требуется соответствующая пара
+            libraryaddress4: $ ('# libraryaddress4'). val (), // если применимо, требуется соответствующая пара
+            libraryname5: $ ('# libraryname5'). val (), // если применимо, требуется соответствующая пара
+            libraryaddress5: $ ('# libraryaddress5'). val (), // если применимо, требуется соответствующая пара
+            libraryname6: $ ('# libraryname6'). val (), // если применимо, требуется соответствующая пара
+            libraryaddress6: $ ('# libraryaddress6'). val (), // если применимо, требуется соответствующая пара
+            libraryname7: $ ('# libraryname7'). val (), // если применимо, требуется соответствующая пара
+            libraryaddress7: $ ('# libraryaddress7'). val (), // если применимо, требуется соответствующая пара
+            libraryname8: $ ('# libraryname8'). val (), // если применимо, требуется соответствующая пара
+            libraryaddress8: $ ('# libraryaddress8'). val (), // если применимо, требуется соответствующая пара
+            имя_библиотеки9: $ ('# имя_библиотеки9'). val (), // если применимо, требуется соответствующая пара
+            libraryaddress9: $ ('# libraryaddress9'). val (), // если применимо, требуется соответствующая пара
+            libraryname10: $ ('# libraryname10'). val (), // если применимо, требуется соответствующая пара
+            libraryaddress10: $ ('# libraryaddress10'). val () // если применимо, требуется соответствующая пара
+        },
+        success: function (result) {
+            console.log (результат);
+            if (result.status == "1") {
+                // 1 = успешная отправка, используйте возвращенный guid (result.result), чтобы проверить статус вашей отправки.
+                // Среднее время обработки 30-60 секунд
+                document.getElementById ("postresult"). innerHTML = result.status + ";" + result.message + ";" + result.result;
+                // result.result - это GUID-квитанция для отправки, вы можете использовать этот guid для проверки статуса проверки
+            } еще {
+                // 0 = ошибка
+                document.getElementById ("postresult"). innerHTML = result.status + ";" + result.message + ";" + result.result;
+            }
+            console.log ("status:" + result.status);
+            console.log ("result:" + result.result);
+        },
+        ошибка: функция (результат) {
+            console.log ( "Ошибка!");
+            document.getElementById ("postresult"). innerHTML = "Неожиданная ошибка"
+        }
+    });
+                                
+Проверьте статус отправки проверки исходного кода:
+
+    // Проверка статуса проверки исходного кода
+    $ .Ajax ({
+        тип: "GET",
+        URL: "//api.etherscan.io/api",
+        данные: {
+            guid: 'ezq878u486pzijkvvmerl6a9mzwhv6sefgvqi5tkwceejc7tvn', // Замените полученным кодом GUID вашего исходного кода выше
+            модуль: «контракт»,
+            действие: "checkverifystatus"
+        },
+        success: function (result) {
+            console.log ("status:" + result.status); // 0 = ошибка, 1 = проход
+            console.log ("message:" + result.message); // ОК, НОТОК
+            console.log ("result:" + result.result); // объяснение результата
+            $ ('# guidstatus'). html (">>" + result.result);
+        },
+        ошибка: функция (результат) {
+            предупреждение ( 'ошибка');
+        }
+    });
+                                
