@@ -1,0 +1,12 @@
+Разное Инструменты и Утилиты
+Это сторонние инструменты и утилиты, созданные сообществом, и мы не предоставляем никакой поддержки или гарантий для решений, перечисленных ниже.
+
+модуль py-etherscan-api (corpetty)
+
+https://github.com/corpetty/py-etherscan-api
+(Сторонний модуль EtherScan.io API для привязки Python, написанный Кори Петти)
+
+нод API (Себастьян Шюрманн)
+
+https: /github.com/sebs/etherscan-api
+(API-интерфейс Node API для Etherscan)
