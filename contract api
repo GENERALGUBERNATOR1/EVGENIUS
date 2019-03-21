@@ -3,7 +3,7 @@
 
 Получить контракт ABI для проверенных исходных кодов контракта
 
-https://api.etherscan.io/api?module=contract&action=getabi&address=0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413&apikey=YourApiKeyToken
+https://api.etherscan.io/api?module=contract&action=getabi&address=0x6957cbcf451fd1b1dc04dc67b7682d62fba9e2ad&apikey=YourApiKeyToken
 Простой пример получения контракта ABI с использованием Web3.js и Jquery для взаимодействия с контрактом
 
                                 
@@ -28,8 +28,8 @@ https://api.etherscan.io/api?module=contract&action=getabi&address=0xBB9bc244D79
                                 
 Получить исходный код контракта для проверенных исходных кодов контракта
 
-https://api.etherscan.io/api?module=contract&action=getsourcecode&address=0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413&apikey=YourApiKeyToken
-[BETA] Проверить исходный код
+https://api.etherscan.io/api?module=contract&action=getsourcecode&address=0x6957cbcf451fd1b1dc04dc67b7682d62fba9e2ad&apikey=YourApiKeyToken
+Простой пример получения контракта ABI с использованием Web3.js и Jquery для взаимодействия с контрактом
 
 1. Требуется действительный ключ Etherscan API , будет отклонен, если в противном случае 
 2. Текущий дневной лимит в 100 отправлений в день на пользователя (может быть изменен) 
