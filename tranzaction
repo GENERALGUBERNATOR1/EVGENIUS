@@ -3,9 +3,9 @@ API транзакций
 
 Примечание: isError ":" 0 "= Pass, isError": "1" = Ошибка при выполнении контракта
 
-https://api.etherscan.io/api?module=transaction&action=getstatus&txhash=0x15f8e5ea1079d9a0bb04a4c58ae5fe7654b5b2b4463375ff7ffb490aa0032f3a&apikey=YourApiKeyToken
+https://api.etherscan.io/api?module=transaction&action=getstatus&txhash=0x8efdaed6b636c03e28691f6a4b4f594ab2687ecebe020ba38be5a953853400ec&apikey=YourApiKeyToken
 [BETA] Проверка статуса поступления транзакции (применимо только для транзакций после разворота в Византии)
 
 Примечание: статус: 0 = Ошибка, 1 = Проход. Вернет нулевое / пустое значение для пре-византийской вилки
 
-https://api.etherscan.io/api?module=transaction&action=gettxreceiptstatus&txhash=0x513c1ba0bebf66436b5fed86ab668452b7805593c05073eb2d51d3a52f480a76&apikey=YourApiKeyToken
+https://api.etherscan.io/api?module=transaction&action=gettxreceiptstatus&txhash=0x28a712275cb4a74e553c9ce0ab847c7bf4cce81b2c82c727cf1c8484c2934171&apikey=YourApiKeyToken
